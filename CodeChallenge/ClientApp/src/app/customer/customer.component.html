@@ -1,0 +1,41 @@
+<div>
+  <h2>Customers</h2>
+
+  <!-- Add a table to display customer data -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>CustomerId</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>phoneNumber</th>
+        <th>countryCode</th>
+        <th>Gender</th>
+        <th>Balance</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Use *ngFor to iterate through the customers and display each row -->
+      <tr *ngFor="let customer of customers">
+        <td>{{ customer.id }}</td>
+        <td>{{ customer.firstname }}</td>
+        <td>{{ customer.lastname }}</td>
+        <td><a [href]="'mailto:' + customer.email">{{ customer.email }}</a></td>
+        <td>{{ customer.phone_Number }}</td>
+        <td>{{ customer.country_code }}</td>
+        <td>{{ customer.gender }}</td>
+        <td>{{ customer.balance | currency:customer.currency }}</td>
+        <td><button (click)="editCustomer(customer.id)">Edit</button></td>
+        <td><button (click)="deleteCustomer(customer.id)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+    <div>
+      <button type="submit" [routerLink]="['/customers/add']">Add Customer</button>
+    </div>
+</div>
