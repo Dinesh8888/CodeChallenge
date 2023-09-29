@@ -57,6 +57,9 @@ namespace CodeChallenge.Controllers
                 // Deserialize the response content into a list of Customer objects
                 List<Customer>? customers = await response.Content.ReadFromJsonAsync<List<Customer>>();
 
+                // Sort the customers by id
+                customers = customers?.OrderBy(c => int.Parse(c.id)).ToList();
+
                 // Log success
                 _logger.LogInformation("GetCustomers API called successfully.");
 

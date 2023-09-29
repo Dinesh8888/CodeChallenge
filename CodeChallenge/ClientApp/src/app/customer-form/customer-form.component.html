@@ -5,56 +5,58 @@
 
     <div class="form-group">
       <label for="id">Id</label>
-      <input type="text" id="id" formControlName="id">
+      <input type="text" id="id" formControlName="id"  class="form-control" [ngClass]="{ 'required-field': customerForm.get('id')!.touched && customerForm.get('id')!.hasError('required') }">
       <div *ngIf="customerForm.get('id')!.touched && customerForm.get('id')!.hasError('required')" class="error-message">Id is required.</div>
     </div>
 
     <div class="form-group">
       <label for="firstname">First Name</label>
-      <input type="text" id="firstname" formControlName="firstname">
+      <input type="text" id="firstname" formControlName="firstname" class="form-control" [ngClass]="{ 'required-field': customerForm.get('firstname')!.touched && customerForm.get('firstname')!.hasError('required') }">
       <div *ngIf="customerForm.get('firstname')!.touched && customerForm.get('firstname')!.hasError('required')" class="error-message">First Name is required.</div>
     </div>
 
     <div class="form-group">
       <label for="lastname">Last Name</label>
-      <input type="text" id="lastname" formControlName="lastname">
+      <input type="text" id="lastname" formControlName="lastname" class="form-control" [ngClass]="{ 'required-field': customerForm.get('lastname')!.touched && customerForm.get('lastname')!.hasError('required') }">
       <div *ngIf="customerForm.get('lastname')!.touched && customerForm.get('lastname')!.hasError('required')" class="error-message">Last Name is required.</div>
     </div>
 
     <div class="form-group">
       <label for="email">Email</label>
-      <input type="email" id="email" formControlName="email">
+      <input type="email" id="email" formControlName="email" class="form-control"  [ngClass]="{ 'required-field': customerForm.get('email')!.touched && customerForm.get('email')!.hasError('required') }">
       <div *ngIf="customerForm.get('email')!.touched && customerForm.get('email')!.hasError('required')" class="error-message">Email is required.</div>
       <div *ngIf="customerForm.get('email')!.touched && customerForm.get('email')!.hasError('email')" class="error-message">Invalid email format.</div>
     </div>
 
     <div class="form-group">
-      <label for="phoneNumber">Phone Number</label>
-      <input type="text" id="phoneNumber" formControlName="phoneNumber">
+      <label for="phone_Number">Phone Number</label>
+      <input type="text" id="phone_Number" formControlName="phone_Number" class="form-control">
     </div>
 
     <div class="form-group">
-      <label for="countryCode">Country Code</label>
-      <input type="text" id="countryCode" formControlName="countryCode">
+      <label for="country_code">Country Code</label>
+      <input type="text" id="country_code" formControlName="country_code" class="form-control">
     </div>
 
     <div class="form-group">
       <label for="gender">Gender</label>
-      <input type="text" id="gender" formControlName="gender">
+      <input type="text" id="gender" formControlName="gender" class="form-control">
     </div>
 
     <div class="form-group">
       <label for="balance">Balance</label>
-      <input type="number" id="balance" formControlName="balance">
+      <input type="number" id="balance" formControlName="balance" class="form-control">
     </div>
 
     <div class="form-group">
       <label for="currency">Currency</label>
-      <input type="text" id="currency" formControlName="currency">
+      <input type="text" id="currency" formControlName="currency" class="form-control">
     </div>
 
     <div class="form-group">
-      <button type="submit" [disabled]="customerForm.invalid">Save</button>
+      <button type="submit" [disabled]="customerForm.invalid" class="btn btn-primary save-button">
+        <i class="bi bi-save"></i> Save
+      </button>
     </div>
   </form>
 </div>

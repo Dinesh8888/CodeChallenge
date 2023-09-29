@@ -7,7 +7,7 @@ import { Customer } from '../customer/Customer';
 @Component({
   selector: 'app-customer-form',
   templateUrl: './customer-form.component.html',
-  styleUrls: []
+  styleUrls: ['./customer-form.component.css']
 })
 
 export class CustomerFormComponent implements OnInit {
@@ -31,8 +31,8 @@ export class CustomerFormComponent implements OnInit {
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phoneNumber: [''],
-      countryCode: [''],
+      phone_Number: [''],
+      country_code: [''],
       gender: [''],
       balance: [0, Validators.min(0)], // Assuming balance cannot be negative
       currency: ['']

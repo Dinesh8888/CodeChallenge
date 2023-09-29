@@ -8,6 +8,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerFormComponent } from './customer-form/customer-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
     RouterModule.forRoot([
       { path: '', component: CustomerComponent, pathMatch: 'full' },
       { path: 'customers/add', component: CustomerFormComponent }, // Route for adding a customer

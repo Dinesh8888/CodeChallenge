@@ -1,16 +1,16 @@
 <div>
   <h2>Customers</h2>
 
-  <!-- Add a table to display customer data -->
-  <table class="table">
+  <!-- Add a table to display customer data with Bootstrap table styles -->
+  <table class="table table-striped">
     <thead>
       <tr>
         <th>CustomerId</th>
         <th>Firstname</th>
         <th>Lastname</th>
         <th>Email</th>
-        <th>phoneNumber</th>
-        <th>countryCode</th>
+        <th>Phone Number</th>
+        <th>Country Code</th>
         <th>Gender</th>
         <th>Balance</th>
         <th>Edit</th>
@@ -19,7 +19,7 @@
     </thead>
     <tbody>
       <!-- Use *ngFor to iterate through the customers and display each row -->
-      <tr *ngFor="let customer of customers">
+      <tr *ngFor="let customer of customers | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
         <td>{{ customer.id }}</td>
         <td>{{ customer.firstname }}</td>
         <td>{{ customer.lastname }}</td>
@@ -28,14 +28,28 @@
         <td>{{ customer.country_code }}</td>
         <td>{{ customer.gender }}</td>
         <td>{{ customer.balance | currency:customer.currency }}</td>
-        <td><button (click)="editCustomer(customer.id)">Edit</button></td>
-        <td><button (click)="deleteCustomer(customer.id)">Delete</button></td>
+        <td>
+          <button class="btn btn-primary" (click)="editCustomer(customer.id)">
+            <!-- Add a Bootstrap Icon for Edit -->
+            <i class="bi bi-pencil"></i> Edit
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteCustomer(customer.id)">
+            <!-- Add a Bootstrap Icon for Delete -->
+            <i class="bi bi-trash"></i> Delete
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
+  <!-- Add pagination controls -->
+  <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
 
-
-    <div>
-      <button type="submit" [routerLink]="['/customers/add']">Add Customer</button>
-    </div>
+  <div>
+    <button class="btn btn-success" type="button" [routerLink]="['/customers/add']">
+      <!-- Add a Bootstrap Icon for Add -->
+      <i class="bi bi-plus"></i> Add Customer
+    </button>
+  </div>
 </div>

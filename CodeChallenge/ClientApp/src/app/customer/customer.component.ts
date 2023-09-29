@@ -12,6 +12,9 @@ export class CustomerComponent implements OnInit {
   customers: Customer[] = []; // Define the customer array
   base: string = "";
 
+  // Pagination properties
+  currentPage: number = 1;
+  itemsPerPage: number = 10; // Number of items to display per page
 
   constructor(private http: HttpClient, private router: Router, @Inject('BASE_URL') baseUrl: string) {
     this.base = baseUrl;

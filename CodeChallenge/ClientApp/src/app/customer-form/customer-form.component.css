@@ -1,0 +1,24 @@
+input[type="text"] {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.error-message {
+  color: #dc3545;
+}
+
+/* Example styles for the "Save" button */
+.save-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.required-field {
+  border-color: #dc3545; /* Red border color for required fields */
+}
